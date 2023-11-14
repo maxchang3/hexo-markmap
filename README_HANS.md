@@ -114,7 +114,7 @@ hexo_markmap:
     hljs_css: https://fastly.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css
 ```
 
-对于中国大陆地区的用户，推荐使用国内 CDN 或自部署来提高访问速度，尤其是 KaTeX 的 CSS。
+对于中国大陆地区的用户，推荐使用国内 CDN 或自部署的方式来提高访问速度，尤其是 KaTeX 的 CSS。
 
 ```yaml
 hexo_markmap:
