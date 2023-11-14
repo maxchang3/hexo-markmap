@@ -9,11 +9,11 @@ dependencies:
     specifier: ^4.4.2
     version: registry.npmmirror.com/lodash.get@4.4.2
   markmap-common:
-    specifier: ^0.1.6
-    version: registry.npmmirror.com/markmap-common@0.1.6
+    specifier: ^0.15.3
+    version: 0.15.3
   markmap-lib:
-    specifier: ^0.11.6
-    version: registry.npmmirror.com/markmap-lib@0.11.6
+    specifier: ^0.15.4
+    version: 0.15.4(markmap-common@0.15.3)
 
 devDependencies:
   opencc:
@@ -24,6 +24,19 @@ devDependencies:
     version: 2.9.0
 
 packages:
+
+  /@babel/runtime@7.23.2:
+    resolution: {integrity: sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.14.0
+    dev: false
+
+  /@gera2ld/jsx-dom@2.2.2:
+    resolution: {integrity: sha512-EOqf31IATRE6zS1W1EoWmXZhGfLAoO9FIlwTtHduSrBdud4npYBxYAkv8dZ5hudDPwJeeSjn40kbCL4wAzr8dA==}
+    dependencies:
+      '@babel/runtime': 7.23.2
+    dev: false
 
   /abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
@@ -45,6 +58,22 @@ packages:
       readable-stream: 2.3.8
     dev: true
 
+  /argparse@1.0.10:
+    resolution: {integrity: sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==}
+    dependencies:
+      sprintf-js: 1.0.3
+    dev: false
+
+  /argparse@2.0.1:
+    resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+    dev: false
+
+  /autolinker@3.16.2:
+    resolution: {integrity: sha512-JiYl7j2Z19F9NdTmirENSUUIIL/9MytEWtmzhfmsKPCp9E+G35Y0UNCMoM9tFigxT59qSc8Ml2dlZXOCVTYwuA==}
+    dependencies:
+      tslib: 2.4.0
+    dev: false
+
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
     dev: true
@@ -64,6 +93,11 @@ packages:
     resolution: {integrity: sha512-RpAVKQA5T63xEj6/giIbUEtZwJ4UFIc3ZtvEkiaUERylqe8xb5IvqcgOurZLahv93CLKfxcw5YI+DZcUBRyLXA==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /commander@8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
+    dev: false
 
   /concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
@@ -141,6 +175,11 @@ packages:
     resolution: {integrity: sha512-8Rf9Y83NBReMnx0gFzA8JImQACstCYWUplepDa9xprwwtmgEZUF0h/i5xSA625zB/I37EtrswSST6OXxwaaIJQ==}
     dev: true
 
+  /highlight.js@11.9.0:
+    resolution: {integrity: sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==}
+    engines: {node: '>=12.0.0'}
+    dev: false
+
   /iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -179,6 +218,43 @@ packages:
   /isarray@1.0.0:
     resolution: {integrity: sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==}
     dev: true
+
+  /js-yaml@4.1.0:
+    resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
+    hasBin: true
+    dependencies:
+      argparse: 2.0.1
+    dev: false
+
+  /katex@0.16.9:
+    resolution: {integrity: sha512-fsSYjWS0EEOwvy81j3vRA8TEAhQhKiqO+FQaKWp0m39qwOzHVBgAUBIXWj1pB+O2W3fIpNa6Y9KSKCVbfPhyAQ==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
+    dev: false
+
+  /markmap-common@0.15.3:
+    resolution: {integrity: sha512-a40FfdzFEKoyIhd5KDsV6FfkM55WWi2spRq/cUCsOZd8e4PAHMc9auCEjdxTWRiS2EGzET9sPpvyAmPSTva+/w==}
+    dependencies:
+      '@babel/runtime': 7.23.2
+      '@gera2ld/jsx-dom': 2.2.2
+      npm2url: 0.2.1
+    dev: false
+
+  /markmap-lib@0.15.4(markmap-common@0.15.3):
+    resolution: {integrity: sha512-uz/IedoGXoDD6eXpmyD+1vx+g3rEzomX1uwnXOxnigXC9ApXG67lUhA4ffNlucgoV4/BLA2m6KyVvswECjljVQ==}
+    peerDependencies:
+      markmap-common: '*'
+    dependencies:
+      '@babel/runtime': 7.23.2
+      highlight.js: 11.9.0
+      js-yaml: 4.1.0
+      katex: 0.16.9
+      markmap-common: 0.15.3
+      prismjs: 1.29.0
+      remarkable: 2.0.1
+      remarkable-katex: 1.2.1
+    dev: false
 
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -275,6 +351,10 @@ packages:
       npm-normalize-package-bin: 1.0.1
     dev: true
 
+  /npm2url@0.2.1:
+    resolution: {integrity: sha512-Ls7mMyud1Kk0EisqsTt2TPtM7gLRvgmvDxOg3FPI5zjfhQ+ZFNBXX2K9VT7vo+HqUsz/uCiIxkcO0SvIuneVug==}
+    dev: false
+
   /npmlog@4.1.2:
     resolution: {integrity: sha512-2uUqazuKlTaSI/dC8AzicUck7+IrEaOnN/e0jd3Xtt1KcGpwx30v50mL7oPyr/h9bL3E4aZccVwpwP+5W9Vjkg==}
     dependencies:
@@ -333,6 +413,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /prismjs@1.29.0:
+    resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
+    engines: {node: '>=6'}
+    dev: false
+
   /process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
     dev: true
@@ -358,6 +443,23 @@ packages:
       string_decoder: 1.1.1
       util-deprecate: 1.0.2
     dev: true
+
+  /regenerator-runtime@0.14.0:
+    resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
+    dev: false
+
+  /remarkable-katex@1.2.1:
+    resolution: {integrity: sha512-Y1VquJBZnaVsfsVcKW2hmjT+pDL7mp8l5WAVlvuvViltrdok2m1AIKmJv8SsH+mBY84PoMw67t3kTWw1dIm8+g==}
+    dev: false
+
+  /remarkable@2.0.1:
+    resolution: {integrity: sha512-YJyMcOH5lrR+kZdmB0aJJ4+93bEojRZ1HGDn9Eagu6ibg7aVZhc3OWbbShRid+Q5eAfsEqWxpe+g5W5nYNfNiA==}
+    engines: {node: '>= 6.0.0'}
+    hasBin: true
+    dependencies:
+      argparse: 1.0.10
+      autolinker: 3.16.2
+    dev: false
 
   /rimraf@2.7.1:
     resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
@@ -401,6 +503,10 @@ packages:
     requiresBuild: true
     dev: true
 
+  /sprintf-js@1.0.3:
+    resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
+    dev: false
+
   /string-width@1.0.2:
     resolution: {integrity: sha512-0XsVpQLnVCXHJfyEs8tC0zpTVIr5PKKsQtkT29IwupnPTjtPmQ3xT/4yCREF9hYkV/3M3kzcUTSAZT6a6h81tw==}
     engines: {node: '>=0.10.0'}
@@ -441,6 +547,10 @@ packages:
       yallist: 3.1.1
     dev: true
 
+  /tslib@2.4.0:
+    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
+    dev: false
+
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
@@ -459,112 +569,8 @@ packages:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
     dev: true
 
-  registry.npmmirror.com/@babel/runtime@7.20.0:
-    resolution: {integrity: sha512-NDYdls71fTXoU8TZHfbBWg7DiZfNzClcKui/+kyi6ppD2L1qnWW3VV6CjtaBXSUGGhiTWJ6ereOIkUvenif66Q==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@babel/runtime/-/runtime-7.20.0.tgz}
-    name: '@babel/runtime'
-    version: 7.20.0
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: registry.npmmirror.com/regenerator-runtime@0.13.10
-    dev: false
-
-  registry.npmmirror.com/argparse@1.0.10:
-    resolution: {integrity: sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/argparse/-/argparse-1.0.10.tgz}
-    name: argparse
-    version: 1.0.10
-    dependencies:
-      sprintf-js: registry.npmmirror.com/sprintf-js@1.0.3
-    dev: false
-
-  registry.npmmirror.com/autolinker@3.16.2:
-    resolution: {integrity: sha512-JiYl7j2Z19F9NdTmirENSUUIIL/9MytEWtmzhfmsKPCp9E+G35Y0UNCMoM9tFigxT59qSc8Ml2dlZXOCVTYwuA==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/autolinker/-/autolinker-3.16.2.tgz}
-    name: autolinker
-    version: 3.16.2
-    dependencies:
-      tslib: registry.npmmirror.com/tslib@2.4.0
-    dev: false
-
-  registry.npmmirror.com/commander@2.20.3:
-    resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/commander/-/commander-2.20.3.tgz}
-    name: commander
-    version: 2.20.3
-    dev: false
-
-  registry.npmmirror.com/katex@0.12.0:
-    resolution: {integrity: sha512-y+8btoc/CK70XqcHqjxiGWBOeIL8upbS0peTPXTvgrh21n1RiWWcIpSWM+4uXq+IAgNh9YYQWdc7LVDPDAEEAg==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/katex/-/katex-0.12.0.tgz}
-    name: katex
-    version: 0.12.0
-    hasBin: true
-    dependencies:
-      commander: registry.npmmirror.com/commander@2.20.3
-    dev: false
-
   registry.npmmirror.com/lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/lodash.get/-/lodash.get-4.4.2.tgz}
     name: lodash.get
     version: 4.4.2
-    dev: false
-
-  registry.npmmirror.com/markmap-common@0.1.6:
-    resolution: {integrity: sha512-fx4YUo6gZFFr08mi8qX8i6RH9xm5yieLKHr9hAdaTMP+CkPmgzB65F/+t39aFH5HcyEgs5vtTrRZ40lkhalETA==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/markmap-common/-/markmap-common-0.1.6.tgz}
-    name: markmap-common
-    version: 0.1.6
-    dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime@7.20.0
-    dev: false
-
-  registry.npmmirror.com/markmap-lib@0.11.6:
-    resolution: {integrity: sha512-9CnLt/vZzNgW3kO/wqldhinKBbK/h8WUx5GGVjdn2JTs/DrDcZZbvAyVmke3VG+mnWwYHsnjLVIiCbPi5PaepA==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/markmap-lib/-/markmap-lib-0.11.6.tgz}
-    name: markmap-lib
-    version: 0.11.6
-    engines: {node: '>=10'}
-    dependencies:
-      '@babel/runtime': registry.npmmirror.com/@babel/runtime@7.20.0
-      katex: registry.npmmirror.com/katex@0.12.0
-      markmap-common: registry.npmmirror.com/markmap-common@0.1.6
-      prismjs: registry.npmmirror.com/prismjs@1.29.0
-      remarkable: registry.npmmirror.com/remarkable@2.0.1
-      remarkable-katex: registry.npmmirror.com/remarkable-katex@1.2.1
-    dev: false
-
-  registry.npmmirror.com/prismjs@1.29.0:
-    resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/prismjs/-/prismjs-1.29.0.tgz}
-    name: prismjs
-    version: 1.29.0
-    engines: {node: '>=6'}
-    dev: false
-
-  registry.npmmirror.com/regenerator-runtime@0.13.10:
-    resolution: {integrity: sha512-KepLsg4dU12hryUO7bp/axHAKvwGOCV0sGloQtpagJ12ai+ojVDqkeGSiRX1zlq+kjIMZ1t7gpze+26QqtdGqw==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/regenerator-runtime/-/regenerator-runtime-0.13.10.tgz}
-    name: regenerator-runtime
-    version: 0.13.10
-    dev: false
-
-  registry.npmmirror.com/remarkable-katex@1.2.1:
-    resolution: {integrity: sha512-Y1VquJBZnaVsfsVcKW2hmjT+pDL7mp8l5WAVlvuvViltrdok2m1AIKmJv8SsH+mBY84PoMw67t3kTWw1dIm8+g==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/remarkable-katex/-/remarkable-katex-1.2.1.tgz}
-    name: remarkable-katex
-    version: 1.2.1
-    dev: false
-
-  registry.npmmirror.com/remarkable@2.0.1:
-    resolution: {integrity: sha512-YJyMcOH5lrR+kZdmB0aJJ4+93bEojRZ1HGDn9Eagu6ibg7aVZhc3OWbbShRid+Q5eAfsEqWxpe+g5W5nYNfNiA==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/remarkable/-/remarkable-2.0.1.tgz}
-    name: remarkable
-    version: 2.0.1
-    engines: {node: '>= 6.0.0'}
-    hasBin: true
-    dependencies:
-      argparse: registry.npmmirror.com/argparse@1.0.10
-      autolinker: registry.npmmirror.com/autolinker@3.16.2
-    dev: false
-
-  registry.npmmirror.com/sprintf-js@1.0.3:
-    resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/sprintf-js/-/sprintf-js-1.0.3.tgz}
-    name: sprintf-js
-    version: 1.0.3
-    dev: false
-
-  registry.npmmirror.com/tslib@2.4.0:
-    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/tslib/-/tslib-2.4.0.tgz}
-    name: tslib
-    version: 2.4.0
     dev: false

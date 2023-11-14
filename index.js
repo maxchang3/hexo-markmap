@@ -9,7 +9,7 @@ const transformer = new Transformer()
 const options = {
   pjaxEnable: fget("hexo_markmap.pjax"),
   katexEnable: fget("hexo_markmap.katex"),
-  prismEnable: fget("hexo_markmap.prism"),
+  highlightEnable: fget("hexo_markmap.prism") || fget("hexo_markmap.highlight"),
   userCDN: fget("hexo_markmap.userCDN"),
   lockView: fget("hexo_markmap.lockView"),
   fixSVGAttrNaN: fget("hexo_markmap.fixSVGAttrNaN")

@@ -23,8 +23,8 @@
   },
   "dependencies": {
     "lodash.get": "^4.4.2",
-    "markmap-common": "^0.1.6",
-    "markmap-lib": "^0.11.6"
+    "markmap-common": "^0.15.3",
+    "markmap-lib": "^0.15.4"
   },
   "devDependencies": {
     "opencc": "^1.1.3",
