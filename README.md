@@ -136,6 +136,17 @@ Due to unknown reasons, in some hexo themes (such as [hexo-theme-volantis](https
 
 This is because the zoom event of d3.js returns x, y, k attributes with `NaN` values. As this is an upstream issue and the reason is currently unknown, this problem is fixed by a rather dirty patch method. This problem will not affect normal use whether it is turned on or off.
 
+
+### JSON Options
+
+Reference: https://markmap.js.org/docs/json-options
+
+```yaml
+hexo_markmap:
+  JSONOptions: "{'color': ['blue']}"
+```
+
+
 ### default option
 ```yaml
 hexo_markmap:
@@ -149,7 +160,7 @@ hexo_markmap:
     katex_css: https://fastly.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css
     hljs_css: https://fastly.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css
   lockView: false
-  fixSVGAttrNaN: false
+  JSONOptions: "{}"
 ```
 
 # Contributors
