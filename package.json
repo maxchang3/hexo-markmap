@@ -10,6 +10,9 @@
     "markmap",
     "mindmap"
   ],
+  "scripts": {
+    "release": "bumpp"
+  },
   "homepage": "https://github.com/MaxChang3/hexo-markmap#readme",
   "repository": {
     "type": "git",
@@ -19,5 +22,8 @@
     "lodash.get": "^4.4.2",
     "markmap-common": "^0.15.3",
     "markmap-lib": "^0.15.4"
+  },
+  "devDependencies": {
+    "bumpp": "^9.2.0"
   }
 }
