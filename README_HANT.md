@@ -148,6 +148,15 @@ hexo_markmap:
   fixSVGAttrNaN: true
 ```
 
+### JSON Options
+
+參考：https://markmap.js.org/docs/json-options
+
+```yaml
+hexo_markmap:
+  JSONOptions: "{'color': ['blue']}"
+```
+
 ### 預設項
 
 ```yaml
@@ -163,6 +172,7 @@ hexo_markmap:
     hljs_css: https://fastly.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css
   lockView: false
   fixSVGAttrNaN: false
+  JSONOptions: "{}"
 ```
 
 # 貢獻者
