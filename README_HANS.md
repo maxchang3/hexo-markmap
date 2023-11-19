@@ -91,16 +91,16 @@ hexo_markmap:
 
 > 如果你同时装有 `mathjax`，也请打开此项。
 
-### Prism
+### 代码高亮
 
 默认值 `false`
 
 ```yaml
 hexo_markmap:
-  prism: true
+  highlight: true
 ```
 
-如果需要插入代码块，请开启此项配置以插入 CSS 文件。如果博客本身已经通过其他方式配置 prism 则无需开启.
+如果需要插入代码块，请开启此项配置以插入 CSS 文件。如果博客本身已经通过其他方式配置 highlight.js 则无需开启.
 
 ### 自定义 CDN
 
@@ -108,9 +108,20 @@ hexo_markmap:
 hexo_markmap:
   userCDN:
     d3_js: https://fastly.jsdelivr.net/npm/d3@6
-    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
-    katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
-    prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.15.4
+    webfont_js: https://fastly.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js
+    katex_css: https://fastly.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css
+    hljs_css: https://fastly.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css
+```
+
+对于中国大陆地区的用户，推荐使用国内 CDN 或自部署的方式来提高访问速度，尤其是 KaTeX 的 CSS。
+
+```yaml
+hexo_markmap:
+  userCDN:
+    d3_js: https://cdn.staticfile.org/d3/6.7.0/d3.min.js
+    hljs_css: https://cdn.staticfile.org/highlight.js/11.8.0/styles/default.min.css
+    katex_css: https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css
 ```
 
 ### 锁定视图
@@ -137,20 +148,31 @@ hexo_markmap:
   fixSVGAttrNaN: true
 ```
 
+### JSON Options
+
+参考：https://markmap.js.org/docs/json-options
+
+```yaml
+hexo_markmap:
+  JSONOptions: "{'color': ['blue']}"
+```
+
 ### 缺省项
 
 ```yaml
 hexo_markmap:
   pjax: false
   katex: false
-  prism: false
+  highlight: false
   userCDN:
     d3_js: https://fastly.jsdelivr.net/npm/d3@6
-    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
-    katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
-    prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.15.4
+    webfont_js: https://fastly.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js
+    katex_css: https://fastly.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css
+    hljs_css: https://fastly.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css
   lockView: false
   fixSVGAttrNaN: false
+  JSONOptions: "{}"
 ```
 
 # 贡献者

@@ -1,0 +1,27 @@
+name: Convert README_HANS.md to README_HANT.md
+
+on:
+  push:
+    paths:
+      - 'README_HANS.md'
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install OpenCC
+        run: sudo apt-get install opencc
+
+      - name: Convert README_HANS.md to README_HANT.md
+        run: opencc -i README_HANS.md -o README_HANT.md -c s2twp.json
+
+      - name: Commit and push README_HANT.md
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "docs: auto update README_HANT.md" -a
+          git push

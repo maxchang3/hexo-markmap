@@ -94,13 +94,13 @@ If you need to use $K\kern-.25em\raise.45ex {\scriptstyle{A}}\kern-.15em\TeX$, p
 > If your blog has MathJax installed, please turn it on.
 
 
-### Prism
+### highlight
 
 default value `false`
 
 ```yaml
 hexo_markmap:
-  prism: true
+  highlight: true
 ```
 
 If you need to use code blocks, please turn it on to insert the CSS links. If prism.css has already been added to your blog by another way, then you don’t need to do it.
@@ -111,9 +111,10 @@ If you need to use code blocks, please turn it on to insert the CSS links. If pr
 hexo_markmap:
   userCDN:
     d3_js: https://fastly.jsdelivr.net/npm/d3@6
-    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
-    katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
-    prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.15.4
+    webfont_js: https://fastly.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js
+    katex_css: https://fastly.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css
+    hljs_css: https://fastly.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css
 ```
 
 ### Lock view
@@ -135,19 +136,31 @@ Due to unknown reasons, in some hexo themes (such as [hexo-theme-volantis](https
 
 This is because the zoom event of d3.js returns x, y, k attributes with `NaN` values. As this is an upstream issue and the reason is currently unknown, this problem is fixed by a rather dirty patch method. This problem will not affect normal use whether it is turned on or off.
 
+
+### JSON Options
+
+Reference: https://markmap.js.org/docs/json-options
+
+```yaml
+hexo_markmap:
+  JSONOptions: "{'color': ['blue']}"
+```
+
+
 ### default option
 ```yaml
 hexo_markmap:
   pjax: false
   katex: false
-  prism: false
+  highlight: false
   userCDN:
     d3_js: https://fastly.jsdelivr.net/npm/d3@6
-    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
-    katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
-    prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.15.4
+    webfont_js: https://fastly.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js
+    katex_css: https://fastly.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css
+    hljs_css: https://fastly.jsdelivr.net/npm/@highlightjs/cdn-assets@11.8.0/styles/default.min.css
   lockView: false
-  fixSVGAttrNaN: false
+  JSONOptions: "{}"
 ```
 
 # Contributors
