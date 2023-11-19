@@ -19,7 +19,13 @@ jobs:
       - name: Convert README_HANS.md to README_HANT.md
         run: opencc -i README_HANS.md -o README_HANT.md -c s2twp.json
 
+      - name: Check if there are any changes
+        id: verify_diff
+        run: |
+          git diff --quiet . || echo "changed=true" >> $GITHUB_OUTPUT
+
       - name: Commit and push README_HANT.md
+        if: steps.verify_diff.outputs.changed == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
