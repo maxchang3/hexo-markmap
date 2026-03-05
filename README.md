@@ -4,10 +4,10 @@
 |
 
 > [!WARNING]
-> Due to an operational mistake, we incorrectly marked the Beta version as the official release, which may have led some users to install the Beta version. However, the Beta version contains an unresolved issue that was not properly updated and fixed. This version has now been withdrawn. If you are experiencing related issues, please reinstall the stable 1.x version.
+> This is the documentation for `hexo-markmap@1`. If you use `hexo-markmap@2`, please check [here](https://github.com/markmap-universe/hexo-markmap)
 > 
-> 由于操作失误，我们错误地将 Beta 版标记为正式版发布，可能导致部分用户安装了 Beta 版。然而，Beta 版中存在一个尚未同步修复的问题。目前，该版本已被撤回。对于遇到相关问题的用户，请重新安装稳定的 1.x 版本。
-> 
+> If you want to upgrade to `hexo-markmap@2`, please check [here](#upgrade-to-hexo-markmap-v2).
+
 
 Depend on [markmap](https://github.com/gera2ld/markmap). Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap).
 
@@ -155,6 +155,90 @@ hexo_markmap:
   lockView: false
   fixSVGAttrNaN: false
 ```
+
+# Upgrade to `hexo-markmap` v2
+
+`hexo-markmap@2` is a completely refactored version by [@coderxi1](https://github.com/coderxi1/) and [@maxchang3](https://github.com/maxchang3/). This version upgrades to the latest Markmap and introduces more customization options, including:
+
+- Customization within a single Markmap tag using frontmatter:
+  - CSS styles (custom height, width, responsive layout, etc.)
+    - Since v2.0.5, setting styles in the frontmatter is no longer supported. Instead, you can define them directly within a `<style>` tag by combining it with the `id` option.
+  - Markmap's [JSON Options](https://markmap.js.org/docs/json-options#option-list)
+- Automatic CDN URL generation using Markmap's built-in URL builder
+- On-demand CDN resource insertion based on syntax usage
+- Support for dark mode and fullscreen button
+- Refactored in TypeScript with test coverage
+
+Note that some implementation details differ from `hexo-markmap@1`. If you do not require these new features, you may continue using `hexo-markmap@1`.
+
+To upgrade to `hexo-markmap@2`, follow these steps:
+
+1. Install `hexo-markmap@2` using your preferred package manager:
+
+    ```bash
+    pnpm add hexo-markmap@2 -D
+    ```
+    ```bash
+    npm install hexo-markmap@2 --save-dev
+    ```
+    ```bash
+    yarn add hexo-markmap@2 -D
+    ```
+
+2. Modify your `config.yml` as needed:
+
+   - The following configuration options are **no longer supported**:
+      ```diff
+      hexo_markmap:
+      -  pjax: false
+      -  katex: false
+      -  prism: false
+      -  lockView: false
+      -  fixSVGAttrNaN: false
+      ```
+      - The new version no longer supports `pjax` compatibility;
+      - KaTeX and Prism.js are now automatically detected and generate corresponding CDN tags;
+      - By setting both `pan` and `zoom` in the `markmap` frontmatter to `false`, you can achieve the same effect as `lockView`.
+
+   - `CDN` configuration logic has also changed:
+      ```diff
+      hexo_markmap:
+      -  userCDN:
+      -    d3_js: https://fastly.jsdelivr.net/npm/d3@6
+      -    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
+      -    katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
+      -    prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+      +  CDN: 'custom'
+      +  customCDN: 'https://fastly.jsdelivr.net/npm/'
+      ```
+      - The new `CDN` setting supports `fastly`, `jsdelivr`, `unpkg`, and a `custom` option;
+      - If you choose `custom`, the `customCDN` value will be used as the CDN prefix.
+
+   - Additionally, the previous `depth` parameter for setting fold levels has been removed. Instead, you can use the `initialExpandLevel` option in frontmatter.
+3. Update your `markmap` tags in your Markdown files:
+
+   - The `markmap` tag now supports frontmatter options. You can specify the options directly in the tag, like this:
+      ```markdown
+      {% markmap %}
+      ---
+      markmap:
+        colorFreezeLevel: 2
+      ---
+      # Markdown
+      # Syntax
+      {% endmarkmap %}
+      ```
+
+   - You can still customize the height of the mindmap directly in the tag, by default it will be calculated based on the content:
+      ```diff
+      - {% markmap 300px %}
+      + {% markmap %}
+      # Markdown
+      # Syntax
+      {% endmarkmap %}
+      ```
+4. Finally, regenerate your blog.
+
 
 # Contributors
 

@@ -3,6 +3,11 @@
 | [繁体中文](https://github.com/MaxChang3/hexo-markmap/blob/main/README_HANT.md)
 |
 
+> [!WARNING]
+> 这是 `hexo-markmap@1` 的文档。如果你正在使用 `hexo-markmap@2`，请查看 [这里](https://github.com/markmap-universe/hexo-markmap)。
+>
+> 如果你想升级到 `hexo-markmap@2`，请查看 [这里](#升级到-hexo-markmap2)。
+
 依赖于 [markmap](https://github.com/gera2ld/markmap)，灵感来自 [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap)。
 
 # hexo-markmap  <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/v/hexo-markmap"></a> <a href="https://npm.im/hexo-markmap"><img src="https://badgen.net/npm/dm/hexo-markmap"></a>
@@ -152,6 +157,89 @@ hexo_markmap:
   lockView: false
   fixSVGAttrNaN: false
 ```
+
+# 升级到 `hexo-markmap@2`
+
+`hexo-markmap@2` 是由 [@coderxi1](https://github.com/coderxi1/) 与 [@maxchang3](https://github.com/maxchang3/) 全新重构的版本。该版本升级至最新的 Markmap，引入了更多自定义选项，具体改进包括：
+
+- 可在单个 Markmap 标签中，通过 frontmatter 自定义：
+  - CSS 样式（实现自定义高度、宽度、响应式布局等）
+    - 自 v2.0.5 起，不再支持在 frontmatter 中设置样式。但你可以结合 `id` 选项直接在 `<style>` 标签中定义样式。
+  - Markmap 的 [JSON Options](https://markmap.js.org/docs/json-options#option-list)
+- 利用 Markmap 内置的 URL Builder 自动生成 CDN 地址
+- 根据语法自动生成相应的 CDN 标签
+- 支持深色模式与全屏按钮
+- 使用 TypeScript 重构，并覆盖了测试用例
+
+需要注意的是，由于部分实现细节已与 `hexo-markmap@1` 不同，如对上述新功能没有强烈需求，仍可继续使用 `hexo-markmap@1`。
+
+若需升级至 `hexo-markmap@2`，请参考以下步骤：
+
+1. 使用你喜欢的包管理器安装 `hexo-markmap@2`：
+    ```bash
+    pnpm add hexo-markmap@2 -D
+    ```
+    ```bash
+    npm install hexo-markmap@2 --save-dev
+    ```
+    ```bash
+    yarn add hexo-markmap@2 -D
+    ```
+2. 根据需要修改 `config.yml` 中的配置：
+
+   - 以下配置项**已不再支持**：
+      ```diff
+      hexo_markmap:
+      -  pjax: false
+      -  katex: false
+      -  prism: false
+      -  lockView: false
+      -  fixSVGAttrNaN: false
+      ```
+      - 当前版本已放弃对 `pjax` 的兼容性；
+      - KaTeX 与 Prism.js 现可自动检测并生成相应的 CDN 标签；
+      - 同时将 frontmatter 中 `markmap` 的 `pan` 和 `zoom` 设为 `false`，即可达到与 `lockView` 相同的效果。
+
+   - `CDN` 配置逻辑也有所调整：
+      ```diff
+      hexo_markmap:
+      -  userCDN:
+      -    d3_js: https://fastly.jsdelivr.net/npm/d3@6
+      -    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
+      -    katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
+      -    prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+      +  CDN: 'custom'
+      +  customCDN: 'https://fastly.jsdelivr.net/npm/'
+      ```
+      - 现在的 `CDN` 配置支持 `fastly`、`jsdelivr`、`unpkg` 三个选项以及 `custom` 自定义选项；
+      - 如果选择 `custom`，则 `customCDN` 的值将作为 CDN 前缀使用。
+
+   - 此外，之前可传入的 `depth` 参数以指定折叠深度已移除，你可以在 frontmatter 中使用 `options` 配置 `initialExpandLevel`。
+3. 更新你的 Markdown 文件中的 `markmap` 标签：
+
+  - 现在 `markmap` 标签支持 frontmatter 选项。你可以直接在标签中指定选项，例如：
+    ```markdown
+    {% markmap %}
+    ---
+    markmap:
+      colorFreezeLevel: 2
+    ---
+    # Markdown
+    # Syntax
+    {% endmarkmap %}
+    ```
+
+  - 你仍然可以直接在标签中自定义思维导图的高度，但默认情况下会根据内容进行计算：
+    ```diff
+    - {% markmap 300px %}
+    + {% markmap %}
+    # Markdown
+    # Syntax
+    {% endmarkmap %}
+    ```
+
+4. 最后，重新生成你的博客。
+
 
 # 贡献者
 
